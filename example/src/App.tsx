@@ -1,12 +1,8 @@
-import React, { useEffect } from 'react'
-import PaperSnackbarModule, { Counter } from 'react-native-paper-snackbar'
+import * as React from 'react'
+import Snackbar from 'react-native-paper-snackbar'
 
 const App = () => {
-  useEffect(() => {
-    console.log(PaperSnackbarModule)
-  })
-
-  return <Counter />
+  return <Snackbar />
 }
 
 export default App
