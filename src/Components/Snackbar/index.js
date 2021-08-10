@@ -1,29 +1,28 @@
 import * as React from 'react'
 import { View } from 'react-native'
-import { Button, Snackbar as PaperSnackbar } from 'react-native-paper'
+import { Snackbar as PaperSnackbar } from 'react-native-paper'
 import styles from './styles'
 
-const Snackbar = () => {
-  const [visible, setVisible] = React.useState(true)
+const Snackbar = (props) => {
+  const { snackbar, onDismiss } = props
 
-  const onToggleSnackbar = () => setVisible(!visible)
+  if (JSON.stringify(snackbar) === '{}') {
+    return null
+  }
 
-  const onDismissSnackbar = () => setVisible(false)
+  let title = snackbar.title || ''
+  let action = snackbar.action || null
+  let duration = snackbar.duration || 30 * 1000
 
   return (
     <View style={styles.container}>
-      <Button onPress={onToggleSnackbar}>{visible ? 'Hide' : 'Show'}</Button>
       <PaperSnackbar
-        visible={visible}
-        onDismiss={onDismissSnackbar}
-        action={{
-          label: 'Undo',
-          onPress: () => {
-            // Do something
-          },
-        }}
+        visible={true}
+        onDismiss={onDismiss}
+        action={action}
+        duration={duration}
       >
-        Hey there! I'm a Snackbar.
+        {title}
       </PaperSnackbar>
     </View>
   )
