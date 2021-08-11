@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { showSnackbar, Snackbar } from 'react-native-paper-snackbar'
 
 const snackbar = {
-  title: 'hello',
+  title: 'I am a Snackbar',
   action: {
     label: 'Action',
     onPress: () => console.log('Action was pressed'),
